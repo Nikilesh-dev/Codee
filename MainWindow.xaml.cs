@@ -13,78 +13,94 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Log2
+namespace Imcrement_and_decrement
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
-        { 
+        {
             InitializeComponent();
         }
-        String User = "Nikilesh05";
-        String Passwrd = "123456";
-        int Retry = 0;
+
+        String Print = "";
+
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (User == Userid.Text && Passwrd == Pass.Password)
+            int Start = Convert.ToInt16(txtStart.Text);
+            int End = Convert.ToInt16(txtEnd.Text);
+            int Increment = Convert.ToInt16(txtIncrement.Text);
+            if (Start >= 1000 || End >= 1000 || Increment >= 100)
             {
-                MessageBox.Show("You have Successfully logged in");
+                MessageBoxResult result = MessageBox.Show("Invalid Input please give valid Input", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (result == MessageBoxResult.OK)
+                {
+                    txtStart.Clear();
+                    txtEnd.Clear();
+                    txtIncrement.Clear();
+                }
             }
             else
             {
-                if (Retry == 0)
+                for (int i = Start; i <= End; i = i + Increment)
                 {
-                    MessageBoxResult msgresult = MessageBox.Show("User id and Password Mismatch Do you wish to retry Attempts Remaining : 3 " , "Error",MessageBoxButton.YesNo,MessageBoxImage.Warning);
-                    if (msgresult == MessageBoxResult.Yes)
+                    Print = i.ToString();
+                    if (Print == "")
                     {
-                        Retry++;
-                        Userid.Clear();
-                        Pass.Clear();
-
+                        Display1.Content = Print;
+                    }
+                    else if (Print == End.ToString())
+                    {
+                        Display1.Content += Print;
+                    }
+                    else
+                    {
+                        Display1.Content += Print + ",";
                     }
                 }
-                else if (Retry == 1)
+            }
+
+        }
+             
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            int Start1 = Convert.ToInt16(txtStart2.Text);
+            int End1 = Convert.ToInt16(txtEnd2.Text);
+            int Decrement = Convert.ToInt16(txtDecrement.Text);
+            if (Start1 >= 1000 || End1 >= 1000 || Decrement > 100)
+            {
+                MessageBoxResult result = MessageBox.Show("Invalid Input Please give valid Input", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
+                if (result == MessageBoxResult.OK)
                 {
-                    MessageBoxResult msgresult1 = MessageBox.Show("User id and Password Mismatch Do you wish to retry Attempts Remaining : 2" , "Error", MessageBoxButton.YesNo,MessageBoxImage.Warning);
-                    if (msgresult1 == MessageBoxResult.Yes)
-                    {
-                        Retry++;
-                        Userid.Clear();
-                        Pass.Clear();
-                    }
+                    txtStart2.Clear();
+                    txtEnd2.Clear();
+                    txtDecrement.Clear();
                 }
-                else if (Retry == 2)
-                {
-                    MessageBoxResult msgresult2 = MessageBox.Show("User id and Password Mismatch Do you wish to retry Attempts Remaining : 1" , "Error", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-                    if (msgresult2 == MessageBoxResult.Yes)
-                    {
-                        Retry++;
-                        Userid.Clear();
-                        Pass.Clear();
-                    }
-                }
-                else if (Retry == 3)
-                {
-                    MessageBox.Show("Sorry you exceed your limit","Error",MessageBoxButton.OK,MessageBoxImage.Error);
-
-
-                    Userid.Visibility = Visibility.Hidden;
-                    Pass.Visibility = Visibility.Hidden;
-                    btnlog.IsEnabled = false;
-                    btnSign.IsEnabled = false;
-
-                }
-                }
-
-                
-                }
-            private void Button_Click_1(object sender, RoutedEventArgs e)
+            }
+            else
             {
 
+                for (int j = Start1; j >= End1; j = j - Decrement)
+                {
+                   Print = j.ToString();
+                    
+                    if (Print == "")
+                    {
+                        Display2.Content = Print;
+                    }
+                    else if (Print == End1.ToString())
+                    {
+                        Display2.Content += Print;
+                    }
+                    else
+                    {
+                        Display2.Content += Print + ",";
+                    }
+                }
             }
         }
-    } 
+    }
+}
