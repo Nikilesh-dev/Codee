@@ -1,33 +1,44 @@
-﻿<Window x:Class="Log2.MainWindow"
+﻿<Window x:Class="Dashboard.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Log2"
+        xmlns:local="clr-namespace:Dashboard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="RoyalBlue">
+        Title="MainWindow" Height="500" Width="700" Background="#E2A600">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-            
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition ></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
-        <Label Content="Facebook" FontSize="50"  Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"></Label>
-        <Label Content="User Id :" Grid.Column="0" Margin="0,0,100,0" Grid.Row="1" FontSize="20" FontWeight="Bold" HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="White"></Label>
-        <TextBox x:Name="Userid" Width="250"   Height="40" VerticalContentAlignment="Center" FontSize="20" Margin="0,20,0,0" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
-        <Label Content="Password :" Grid.Column="0" Margin="0,0,100,0" Grid.Row="2"  FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="White"></Label>
-        <PasswordBox x:Name="Pass" Width="250"  Height="40" FontSize="20" Margin="0,20,0,0" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"></PasswordBox>
-        <Button x:Name="btnlog" Content="Log in" Width="200" Height="40" Margin="0,50,100,0" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.RowSpan="2" Click="Button_Click"  FontSize="20" FontWeight="Bold" Grid.Column="0" Grid.Row="3"></Button>
-        <Button x:Name="btnSign" Content="Sign up" Width="200" Height="40" Margin="0,50,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.RowSpan="2" Click="Button_Click_1"  FontSize="20" FontWeight="Bold" Grid.Column="1" Grid.Row="3"></Button>
-       </Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="100,0,0,0">
+                <Border BorderBrush="White" BorderThickness="5" CornerRadius="10" >
+                    <StackPanel Orientation="Vertical" Height="450" Width="210">
+                        <Label Content="Welcome Back!" Margin="0,100,0,0" Foreground="White" FontSize="15" FontWeight="Medium" HorizontalAlignment="Center"></Label>
+                        <Label Content="Login to Continue" Margin="0,-8,0,0" Foreground="White" FontSize="8" FontWeight="SemiBold" HorizontalAlignment="Center"></Label>
+                        <TextBox x:Name="txtMail" Text="Mail ID" Width="150" BorderThickness="0,0,0,3" BorderBrush="White" Background="#E2A600" Foreground="White" FontSize="12" FontWeight="Medium" Margin="0,35,0,0" VerticalContentAlignment="Center"></TextBox>
+                        <TextBox x:Name="txtPass" Width="150" Text="Password" BorderThickness="0,0,0,3" BorderBrush="White" Background="#E2A600" Foreground="White" FontSize="12" FontWeight="Medium" Margin="0,20,0,0" VerticalContentAlignment="Center"></TextBox>
+                        <Button Content="Forget Password?" Background="#E2A600" FontSize="7" FontWeight="Medium" Margin="0,10,0,0" Width="58" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" BorderBrush="Black" ></Button>
+
+                        <Border>
+                            <Button Content="Login" Background="#201E28" Foreground="White" Width="110" Height="28" Margin="0,27,0,0" FontSize="12" FontWeight="Medium" Padding="5"></Button>
+                        </Border>
+                        <Button Content="CREATE ACCOUNT" Background="#E2A600" FontSize="10" FontWeight="SemiBold" Margin="0,110,0,0" Width="87" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" BorderBrush="Black" ></Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="80,0,100,0">
+                <Border BorderBrush="White" BorderThickness="5" CornerRadius="10" >
+                    <StackPanel Orientation="Vertical" Height="450" Width="210"   Background="#201E28">
+                        <Label Content="Create Account" Margin="0,100,0,0" Foreground="White" FontSize="15" FontWeight="Medium" HorizontalAlignment="Center"></Label>
+                        <TextBox x:Name="txtNMail" Text="Mail ID" Width="150" BorderThickness="0,0,0,3" BorderBrush="White" Background="#201E28" Foreground="White" FontSize="12" FontWeight="Medium" Margin="0,35,0,0" VerticalContentAlignment="Center"></TextBox>
+                        <TextBox x:Name="txtname" Text="Full Name" Width="150" BorderThickness="0,0,0,3" BorderBrush="White" Background="#201E28" Foreground="White" FontSize="12" FontWeight="Medium" Margin="0,35,0,0" VerticalContentAlignment="Center"></TextBox>
+                        <TextBox x:Name="txtCPass" Text="Password" Width="150" BorderThickness="0,0,0,3" BorderBrush="White" Background="#201E28" Foreground="White" FontSize="12" FontWeight="Medium" Margin="0,35,0,0" VerticalContentAlignment="Center"></TextBox>
+                        <Button Content="Create" Background="#E2A600" Foreground="White" Width="130" Height="28" Margin="0,27,0,0" FontSize="12" FontWeight="Medium" Padding="5"></Button>
+                        <Button Content="LOGIN" Background="#201E28" Foreground="#E2A600" FontSize="10" FontWeight="Bold" Margin="0,78,0,0" Width="40" VerticalContentAlignment="Center" BorderThickness="0,0,0,1" BorderBrush="#E2A600" ></Button>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+
+
+
+        </StackPanel>
+    </Grid>
 </Window>
